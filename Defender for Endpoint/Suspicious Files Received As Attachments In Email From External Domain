@@ -1,0 +1,5 @@
+union withsource=SourceTable EmailAttachmentInfo
+| where FileName endswith ".lnk" or
+FileName endswith ".iso" or
+FileName endswith ".one"
+| where SenderFromAddress !contains "@contoso.com"
