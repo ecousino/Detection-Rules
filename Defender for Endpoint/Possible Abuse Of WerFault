@@ -1,0 +1,5 @@
+union withsource=SourceTable DeviceProcessEvents
+| where FolderPath !contains @"C:\Windows\SysWOW64"
+| where FolderPath !contains @"C:\Windows\System32"
+| where FolderPath !contains @"%SystemRoot%\System32"
+| where ProcessCommandLine contains "werfault.exe"
