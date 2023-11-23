@@ -1,0 +1,18 @@
+DeviceProcessEvents | where (ProcessCommandLine contains @'.jpeg.cmd' or 
+ProcessCommandLine contains @'.doc.cmd' or 
+ProcessCommandLine contains @'.docx.cmd' or 
+ProcessCommandLine contains @'.xls.cmd' or 
+ProcessCommandLine contains @'.xlsx.cmd' or 
+ProcessCommandLine contains @'.ppt.cmd' or 
+ProcessCommandLine contains @'.pptx.cmd' or 
+ProcessCommandLine contains @'.rtf.cmd' or 
+ProcessCommandLine contains @'.pdf.cmd' or 
+ProcessCommandLine contains @'.txt.cmd' or 
+ProcessCommandLine contains @'.jpg.cmd' or 
+ProcessCommandLine contains @'.gif.cmd' or 
+ProcessCommandLine contains @'.png.cmd' or 
+ProcessCommandLine contains @'.zip.cmd' or 
+ProcessCommandLine contains @'.7z.cmd' or 
+ProcessCommandLine contains @'.html.cmd' or 
+ProcessCommandLine contains @'.lnk.cmd' or 
+ProcessCommandLine contains @'.rar.cmd')
