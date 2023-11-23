@@ -1,0 +1,39 @@
+title: Possible Malicious Cmd Script With Double Extension
+status: stable
+author: ecousino
+description: Identifies suspicious .cmd file execution with double extension, whih may be an indicator of malicious activity.
+references:
+  - https://nsfocusglobal.com/the-new-apt-group-darkcasino-and-the-global-surge-in-winrar-0-day-exploits/
+  - https://tdm.socprime.com/tdm/info/qQRp36RW8QG5/socprime/#sigma	
+tags:
+  - attack.defense_evasion
+  - attack.t1036.007
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    CommandLine|contains:
+        - '.jpeg.cmd'
+        - '.doc.cmd'
+        - '.docx.cmd'
+        - '.xls.cmd'
+        - '.xlsx.cmd'
+        - '.ppt.cmd'
+        - '.pptx.cmd'
+        - '.rtf.cmd'
+        - '.pdf.cmd'
+        - '.txt.cmd'
+        - '.jpg.cmd'
+        - '.gif.cmd'
+        - '.png.cmd'
+        - '.zip.cmd'
+        - '.7z.cmd'
+        - '.html.cmd'
+	- '.lnk.cmd'
+	- '.rar.cmd'
+  condition: selection
+falsepositives:
+  - Unknown
+level: high
+id: 0bb863c4-5e4b-48d9-b6b4-b0815fadb2e8
