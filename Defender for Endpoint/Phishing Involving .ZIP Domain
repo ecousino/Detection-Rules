@@ -1,0 +1,5 @@
+union withsource=SourceTable EmailUrlInfo, UrlClickEvents, DeviceNetworkEvents, DeviceEvents
+| extend ReportId = coalesce(ReportId_string, tostring(ReportId_long))
+| where (Url has_any ("⁄", "∕") or RemoteUrl has_any ("⁄", "∕"))
+| where (Url has_any ("@") or RemoteUrl has_any ("@"))
+| where (Url has_any (".zip") or RemoteUrl has_any (".zip"))
