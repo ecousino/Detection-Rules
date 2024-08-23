@@ -1,0 +1,6 @@
+union withsource=SourceTable DeviceRegistryEvents, DeviceEvents
+| where RegistryKey endswith @"Software\Microsoft\Windows\CurrentVersion\Run"
+| where RegistryValueData endswith @".lnk"
+or RegistryValueData endswith ".cmd"
+or RegistryValueData endswith ".bat"
+| sort by Timestamp desc
