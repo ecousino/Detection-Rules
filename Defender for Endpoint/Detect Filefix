@@ -1,0 +1,14 @@
+// Based on: https://mrd0x.com/filefix-clickfix-alternative/
+
+let navegadores = dynamic(["chrome.exe",
+"firefox.exe",
+"msedge.exe",
+"brave.exe"]);
+let procesos = dynamic(["cmd.exe",
+"powershell.exe",
+"mshta.exe"
+]);
+DeviceProcessEvents
+| where InitiatingProcessFileName has_any (navegadores)
+| where ProcessCommandLine has_any (procesos)
+| where ProcessCommandLine !contains "chrome-extension"
